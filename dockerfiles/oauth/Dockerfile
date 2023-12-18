@@ -1,9 +1,9 @@
 FROM debian:12.2-slim
 
-RUN apt update && \
-  apt install curl && \
+RUN apt-get update && \
+  apt-get install curl && \
   curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - && \
-  apt install nodejs
+  apt-get install nodejs
 
 RUN git clone https://github.com/vencax/netlify-cms-github-oauth-provider.git oauth
 RUN cd oauth
