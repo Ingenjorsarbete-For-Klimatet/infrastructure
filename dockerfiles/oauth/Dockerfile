@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get install nodejs -y
 
 RUN git clone https://github.com/vencax/netlify-cms-github-oauth-provider.git oauth
-RUN cd oauth
+WORKDIR oauth
 RUN npm install
 
 ENV PORT=3000
