@@ -1,8 +1,8 @@
 name: oauth image
 
-on: [push]
-#  release:
-#    types: [published]
+on:
+  release:
+    types: [published]
 
 env:
   REGISTRY: ghcr.io
