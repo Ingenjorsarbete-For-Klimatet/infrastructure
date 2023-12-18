@@ -1,6 +1,6 @@
 name: oauth image
 
-on:
+on: 
   release:
     types: [published]
 
