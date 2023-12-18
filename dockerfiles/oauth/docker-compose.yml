@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   app:
-    image: 'ghcr.io/Ingenjorsarbete-For-Klimatet/infrastructure/ouath:latest'
+    image: 'ghcr.io/ingenjorsarbete-for-klimatet/infrastructure/oauth:latest'
     restart: unless-stopped
     ports:
       - '3000:3000'
