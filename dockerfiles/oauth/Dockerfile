@@ -1,5 +1,7 @@
 FROM node:lts-bookworm-slim
 
+RUN apt update && \
+    apt install git
 RUN git clone https://github.com/vencax/netlify-cms-github-oauth-provider.git oauth
 RUN cd oauth && \
     git checkout 1.0.0
