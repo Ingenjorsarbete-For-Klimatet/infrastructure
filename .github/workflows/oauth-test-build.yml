@@ -1,4 +1,4 @@
-name: oauth image
+name: oauth image test build
 
 on: [push]
 #  release:
