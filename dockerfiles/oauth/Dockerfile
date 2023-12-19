@@ -15,7 +15,4 @@ RUN cd oauth && \
 WORKDIR oauth
 RUN npm install
 
-ENV PORT=80
-ENV ORIGINS=ingenjorsarbeteforklimatet.se/greenhouse-majorna/admin/
-
 ENTRYPOINT npm start
