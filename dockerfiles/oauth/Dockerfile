@@ -6,4 +6,5 @@ RUN cd oauth && \
 WORKDIR oauth
 RUN npm install
 
-ENTRYPOINT npm start
+EXPOSE 80
+CMD [ "npm", "start" ]
