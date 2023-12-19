@@ -26,6 +26,16 @@ services:
     networks:
       - ifknet
 
+  greenhouse-majorna:
+    image: 'httpd:2.4-alpine'
+    restart: unless-stopped
+    ports:
+      - '4001:80'
+    volumes:
+      - ./admin/greenhouse-majorna:/usr/local/apache2/htdocs/
+    networks:
+      - ifknet
+
 networks:
   ifknet:
     name: ifknet
