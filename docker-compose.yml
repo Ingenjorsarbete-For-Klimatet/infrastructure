@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  nginxpm:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+    networks:
+      - ifknet
+
+  oauth:
+    image: 'ghcr.io/ingenjorsarbete-for-klimatet/infrastructure/oauth:latest'
+    restart: unless-stopped
+    ports:
+      - '3000:80'
+    environment:
+      OAUTH_CLIENT_ID: ${CLIENT_ID}
+      OAUTH_CLIENT_SECRET: ${CLIENT_SECRET}
+      PORT: 80
+      ORIGINS: ingenjorsarbeteforklimatet.se
+    networks:
+      - ifknet
+
+  greenhouse-majorna:
+    image: 'httpd:2.4-alpine'
+    restart: unless-stopped
+    ports:
+      - '4001:80'
+    volumes:
+      - ./admin/greenhouse-majorna:/usr/local/apache2/htdocs/
+    networks:
+      - ifknet
+
+networks:
+  ifknet:
+    name: ifknet
+    driver: bridge
