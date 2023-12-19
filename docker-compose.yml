@@ -10,6 +10,8 @@ services:
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
+    networks:
+      - ifknet
 
   oauth:
     image: 'ghcr.io/ingenjorsarbete-for-klimatet/infrastructure/oauth:latest'
@@ -21,3 +23,10 @@ services:
       OAUTH_CLIENT_SECRET: ${CLIENT_SECRET}
       PORT: 80
       ORIGINS: ingenjorsarbeteforklimatet.se
+    networks:
+      - ifknet
+
+networks:
+  ifknet:
+    name: ifknet
+    driver: bridge
