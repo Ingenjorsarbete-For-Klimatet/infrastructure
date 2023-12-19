@@ -33,3 +33,25 @@ and finaly
 ```bash
 docker compose up
 ```
+
+If the Nginx Proxy Manager (nginxpm) has not been initianlised before, you need to configure it for each service. In the future, we might keep all such config files in this repo (and not use nginxpm).
+
+Custom configs for oauth (update `<app_host_name>` `<app_port>`)
+
+```
+location /auth {
+    proxy_pass http://<app_host_name>:<app_port>;
+    proxy_pass_request_headers      on;
+    proxy_set_header   X-Real-IP        $remote_addr;
+    proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+    proxy_set_header Early-Data $ssl_early_data;
+}
+
+location /callback {
+    proxy_pass http://<app_host_name>:<app_port>;
+    proxy_pass_request_headers      on;
+    proxy_set_header   X-Real-IP        $remote_addr;
+    proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+    proxy_set_header Early-Data $ssl_early_data;
+}
+```
