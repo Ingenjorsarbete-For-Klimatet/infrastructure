@@ -40,3 +40,4 @@ networks:
   ifknet:
     name: ifknet
     driver: bridge
+    external: true
