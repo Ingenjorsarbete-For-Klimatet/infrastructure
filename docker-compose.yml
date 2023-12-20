@@ -32,7 +32,7 @@ services:
     ports:
       - '4001:80'
     volumes:
-      - ./admin/greenhouse-majorna:/usr/local/apache2/htdocs/
+      - ./services/decap/greenhouse-majorna:/usr/local/apache2/htdocs/
     networks:
       - ifknet
 
