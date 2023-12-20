@@ -7,6 +7,9 @@ backend:
 locale: 'sv'
 publish_mode: editorial_workflow
 media_folder: 'content/data'
+slug:
+  encoding: "ascii"
+  clean_accents: true
 
 collections:
   - name: 'post'
