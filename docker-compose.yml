@@ -22,6 +22,16 @@ services:
       - ./services/ifk-sverige:/usr/local/apache2/htdocs/
     networks:
       - ifknet
+  
+  ifk-sverige-search:
+    image: 'ghcr.io/ingenjorsarbete-for-klimatet/ifk-sverige/text-search-server:latest'
+    restart: unless-stopped
+    ports:
+      - '2002:8000'
+    volumes:
+      - ./services/ifk-sverige-text-search-server:/mnt/data
+    networks:
+      - ifknet
 
   oauth:
     image: 'ghcr.io/ingenjorsarbete-for-klimatet/infrastructure/oauth:latest'
