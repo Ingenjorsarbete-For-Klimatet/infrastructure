@@ -27,7 +27,7 @@ services:
     image: 'ghcr.io/ingenjorsarbete-for-klimatet/ifk-sverige/text-search-server:latest'
     restart: unless-stopped
     ports:
-      - '2002:8000'
+      - '2002:80'
     volumes:
       - ./services/ifk-sverige-text-search-server:/mnt/data
     networks:
